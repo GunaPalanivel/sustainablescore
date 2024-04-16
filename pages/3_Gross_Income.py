@@ -38,18 +38,18 @@ def data_frame_demo():
         else:
             data = df.loc[countries]
             data /= 1000000.0
-            st.write("### Gross Agricultural Production ($B)", data.sort_index())
+            st.write("### Sustainability Gross Income Production ($B)", data.sort_index())
 
             data = data.T.reset_index()
             data = pd.melt(data, id_vars=["index"]).rename(
-                columns={"index": "year", "value": "Gross Agricultural Product ($B)"}
+                columns={"index": "year", "value": "Sustainability Gross Income ($B)"}
             )
             chart = (
                 alt.Chart(data)
                 .mark_area(opacity=0.3)
                 .encode(
                     x="year:T",
-                    y=alt.Y("Gross Agricultural Product ($B):Q", stack=None),
+                    y=alt.Y("Sustainability Gross Income ($B):Q", stack=None),
                     color="Region:N",
                 )
             )
@@ -64,14 +64,14 @@ def data_frame_demo():
         )
 
 
-st.set_page_config(page_title="DataFrame Demo", page_icon="📊")
-st.markdown("# DataFrame Demo")
-st.sidebar.header("DataFrame Demo")
+st.set_page_config(page_title="Sustainability Gross Income", page_icon="💰")
+st.markdown("# Sustainability Gross Income")
+st.sidebar.header("Sustainability Gross Income")
 st.write(
-    """This demo shows how to use `st.write` to visualize Pandas DataFrames.
-(Data courtesy of the [UN Data Explorer](http://data.un.org/Explorer.aspx).)"""
+    """It shows how to use `st.write` to visualize sustainability gross income data.
+(Data source: Past Data from API)"""
 )
 
 data_frame_demo()
 
-show_code(data_frame_demo)
+

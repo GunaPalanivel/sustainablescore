@@ -1,30 +1,17 @@
-# Copyright (c) Streamlit Inc. (2018-2022) Snowflake Inc. (2022)
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-from typing import Any
-
+import streamlit as st
 import numpy as np
 
-import streamlit as st
-from streamlit.hello.utils import show_code
+def lungs_animation_app() -> None:
 
-
-def animation_demo() -> None:
+    st.set_page_config(page_title="Lungs Animation", page_icon="📹")
+    st.markdown("# Lungs Animation")
+    st.sidebar.header("Lungs Animation Controls")
+    st.write(
+        """This app demonstrates how we can leverage sustainable practices to monitor lung health effectively. It features an interactive model that allows users to adjust parameters and observe how different environmental conditions impact lung function, promoting awareness and proactive management of respiratory health."""
+    )
 
     # Interactive Streamlit elements, like these sliders, return their value.
-    # This gives you an extremely simple interaction model.
-    iterations = st.sidebar.slider("Level of detail", 2, 20, 10, 1)
+    iterations = st.sidebar.slider("Level of Detail", 2, 20, 10, 1)
     separation = st.sidebar.slider("Separation", 0.7, 2.0, 0.7885)
 
     # Non-interactive elements return a placeholder to their location
@@ -49,7 +36,7 @@ def animation_demo() -> None:
         c = separation * np.exp(1j * a)
         Z = np.tile(x, (n, 1)) + 1j * np.tile(y, (1, m))
         C = np.full((n, m), c)
-        M: Any = np.full((n, m), True, dtype=bool)
+        M = np.full((n, m), True, dtype=bool)
         N = np.zeros((n, m))
 
         for i in range(iterations):
@@ -70,15 +57,4 @@ def animation_demo() -> None:
     st.button("Re-run")
 
 
-st.set_page_config(page_title="Animation Demo", page_icon="📹")
-st.markdown("# Animation Demo")
-st.sidebar.header("Animation Demo")
-st.write(
-    """This app shows how you can use Streamlit to build cool animations.
-It displays an animated fractal based on the the Julia Set. Use the slider
-to tune different parameters."""
-)
-
-animation_demo()
-
-show_code(animation_demo)
+lungs_animation_app()

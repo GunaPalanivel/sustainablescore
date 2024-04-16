@@ -32,7 +32,7 @@ def mapping_demo():
 
     try:
         ALL_LAYERS = {
-            "Bike Rentals": pdk.Layer(
+            "Mycelium leather": pdk.Layer(
                 "HexagonLayer",
                 data=from_data_file("bike_rental_stats.json"),
                 get_position=["lon", "lat"],
@@ -41,7 +41,7 @@ def mapping_demo():
                 elevation_range=[0, 1000],
                 extruded=True,
             ),
-            "Bart Stop Exits": pdk.Layer(
+            "WoodLatex": pdk.Layer(
                 "ScatterplotLayer",
                 data=from_data_file("bart_stop_stats.json"),
                 get_position=["lon", "lat"],
@@ -49,7 +49,7 @@ def mapping_demo():
                 get_radius="[exits]",
                 radius_scale=0.05,
             ),
-            "Bart Stop Names": pdk.Layer(
+            "Cork": pdk.Layer(
                 "TextLayer",
                 data=from_data_file("bart_stop_stats.json"),
                 get_position=["lon", "lat"],
@@ -58,7 +58,7 @@ def mapping_demo():
                 get_size=10,
                 get_alignment_baseline="'bottom'",
             ),
-            "Outbound Flow": pdk.Layer(
+            "Bacterial nanocellulose": pdk.Layer(
                 "ArcLayer",
                 data=from_data_file("bart_path_stats.json"),
                 get_source_position=["lon", "lat"],
@@ -103,15 +103,13 @@ def mapping_demo():
         )
 
 
-st.set_page_config(page_title="Mapping Demo", page_icon="🌍")
-st.markdown("# Mapping Demo")
-st.sidebar.header("Mapping Demo")
+st.set_page_config(page_title="San Francisco Green Business Program", page_icon="🌫️")
+st.markdown("# San Francisco Green Business Program")
+st.sidebar.header("San Francisco Green Business Program")
 st.write(
-    """This demo shows how to use
-[`st.pydeck_chart`](https://docs.streamlit.io/library/api-reference/charts/st.pydeck_chart)
-to display geospatial data."""
+    """San Francisco embraces sustainability through a variety of eco-friendly initiatives, including zero waste stores like Bay Area Bulk and Green Earth Natural Foods, sustainable goods from local businesses like Ardent, and a commitment to green practices through programs like the San Francisco Green Business Program."""
 )
 
 mapping_demo()
 
-show_code(mapping_demo)
+

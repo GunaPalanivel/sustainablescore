@@ -1,0 +1,37 @@
+[
+  {
+    "country": "USA",
+    "lat": 37.0902,
+    "lon": -95.7129,
+    "product": "Paper",
+    "usage": 60
+  },
+  {
+    "country": "Canada",
+    "lat": 56.1304,
+    "lon": -106.3468,
+    "product": "Wood",
+    "usage": 45
+  },
+  {
+    "country": "Germany",
+    "lat": 51.1657,
+    "lon": 10.4515,
+    "product": "Plastic",
+    "usage": 75
+  },
+  {
+    "country": "Australia",
+    "lat": -25.2744,
+    "lon": 133.7751,
+    "product": "Recycled Materials",
+    "usage": 80
+  },
+  {
+    "country": "Brazil",
+    "lat": -14.235,
+    "lon": -51.9253,
+    "product": "Organic Cotton",
+    "usage": 55
+  }
+]
