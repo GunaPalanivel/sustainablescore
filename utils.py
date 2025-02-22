@@ -14,15 +14,24 @@
 
 import inspect
 import textwrap
-
 import streamlit as st
 
-
 def show_code(demo):
-    """Showing the code of the demo."""
+    """Display the source code of a function."""
     show_code = st.sidebar.checkbox("Show code", True)
     if show_code:
-        # Showing the code of the demo.
         st.markdown("## Code")
         sourcelines, _ = inspect.getsourcelines(demo)
-        st.code(textwrap.dedent("".join(sourcelines[1:])))
+        st.code(textwrap.dedent("".join(sourcelines)), language="python")
+
+# Example function to demonstrate
+def demo_function():
+    st.write("🚀 Hello! This is a Streamlit demo function.")
+
+# Streamlit UI
+st.title("Streamlit Online Code Viewer")
+st.write("Use the sidebar to show/hide the source code of the function.")
+
+# Run the function and display its code
+demo_function()
+show_code(demo_function)
